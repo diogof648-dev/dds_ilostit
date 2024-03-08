@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
+import Navbar from "@/components/Navbar"
+import "@/styles/main.css"
 
 const poppins = Poppins({
   weight: "400",
@@ -20,6 +22,7 @@ const RootLayout = ({
   return (
     <html lang="fr">
       <body className={poppins.className}>
+        <Navbar/>
         {children}
       </body>
     </html>
