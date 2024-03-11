@@ -1,0 +1,38 @@
+{
+    "home": 
+    {
+        "text" : "Perdu un objet au CPNV ?\n\nI LOST IT est là !"
+    },
+
+    "about": [
+        {
+            "image": "/about-1.png",
+            "title": "Quel est cet outil ?",
+            "description": "Il vous est sûrement déjà arriver de perdre quoique ce soit et même au sein de l’école mais vous ne savez jamais par où commencer... I Lost It est un outil développer pour vous faciliter dans la recherche de votre objet ou alors, au contraire, si vous avez trouvé un objet qui serait potentiellement perdu, à trouver son propriétaire."
+        },
+        {
+            "image": "/about-1.png",
+            "title": "On vous fait confiance !",
+            "description": "I Lost It ce base sur la bonne volonté des élèves et nous espérons que cette plateforme soit utilisée comme il se doit. Nous vous faisons à 100% confiance pour dire la vérité !"
+        }
+    ],
+
+    "tutorial": [
+
+        {
+            "image": "/about-1.png",
+            "title": "TUTO 1",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod urna erat. Suspendisse suscipit tellus nec faucibus gravida. Donec in placerat ligula, a scelerisque justo."
+        },
+        {
+            "image": "/about-1.png",
+            "title": "TUTO 1",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod urna erat. Suspendisse suscipit tellus nec faucibus gravida. Donec in placerat ligula, a scelerisque justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod urna erat. Suspendisse suscipit tellus nec faucibus gravida. Donec in placerat ligula, a scelerisque justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod urna erat. Suspendisse suscipit tellus nec faucibus gravida. Donec in placerat ligula, a scelerisque justo."
+        },
+        {
+            "image": "/about-1.png",
+            "title": "TUTO 1",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod urna erat. Suspendisse suscipit tellus nec faucibus gravida. Donec in placerat ligula, a scelerisque justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod urna erat. Suspendisse suscipit tellus nec faucibus gravida. Donec in placerat ligula, a scelerisque justo."
+        }
+    ]
+}
