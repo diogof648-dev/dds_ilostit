@@ -20,7 +20,7 @@ const RootLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <html lang="fr">
+    <html lang="fr" className="scroll-smooth scroll-pt-16">
       <body className={poppins.className}>
         <Navbar/>
         {children}
