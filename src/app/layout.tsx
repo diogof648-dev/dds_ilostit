@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
+import Navbar from "@/components/Navbar"
+import "@/styles/main.css"
 
 const poppins = Poppins({
   weight: "400",
@@ -18,8 +20,9 @@ const RootLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <html lang="fr">
+    <html lang="fr" className="scroll-smooth scroll-pt-16">
       <body className={poppins.className}>
+        <Navbar/>
         {children}
       </body>
     </html>
