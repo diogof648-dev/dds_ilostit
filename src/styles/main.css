@@ -691,10 +691,6 @@ video {
   height: 1px;
 }
 
-.h-2 {
-  height: 0.5rem;
-}
-
 .w-1\/2 {
   width: 50%;
 }
@@ -733,10 +729,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-2 {
-  width: 0.5rem;
 }
 
 .min-w-0 {
@@ -780,10 +772,6 @@ video {
 
 .scroll-pt-16 {
   scroll-padding-top: 4rem;
-}
-
-.flex-row {
-  flex-direction: row;
 }
 
 .flex-col {
@@ -932,6 +920,11 @@ video {
   padding: 0.5rem;
 }
 
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -970,11 +963,6 @@ video {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
 }
 
 .pl-4 {
@@ -1427,14 +1415,6 @@ video {
 
   .lg\:flex-row {
     flex-direction: row;
-  }
-
-  .lg\:items-center {
-    align-items: center;
-  }
-
-  .lg\:justify-between {
-    justify-content: space-between;
   }
 
   .lg\:space-x-14 > :not([hidden]) ~ :not([hidden]) {
