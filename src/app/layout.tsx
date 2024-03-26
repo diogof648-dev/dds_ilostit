@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
 import Navbar from "@/components/Navbar"
 import "@/styles/main.css"
+import Provider from "@/context/Provider"
 
 const poppins = Poppins({
   weight: "400",
@@ -14,17 +15,19 @@ export const metadata: Metadata = {
   description: "Web application for CPNV students.",
 }
 
-const RootLayout = ({
+const RootLayout = async ({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
   return (
     <html lang="fr" className="scroll-smooth scroll-pt-16">
-      <body className={poppins.className}>
-        <Navbar/>
-        {children}
-      </body>
+      <Provider>
+        <body className={poppins.className}>
+          <Navbar/>
+          {children}
+        </body>
+      </Provider>
     </html>
   )
 }
