@@ -35,13 +35,13 @@ const Navbar = () => {
                 ))
               }
             </div>
-            <div className="auth-btns max-lg:hidden space-x-3">
-              <Link href="/auth?r=login" className="bg-primary-400 text-white py-2 px-3 hover:bg-primary-600 hover:duration-200">Se connecter</Link>
-              <Link href="/auth?r=register" className="bg-primary-400 text-white py-2 px-3 hover:bg-primary-600 hover:duration-200">S&apos;enregistrer</Link>
-            </div>
-            <div className="dropdown lg:hidden">
-              <Dropdown/>
-            </div>
+              <div className="auth-btns max-lg:hidden space-x-3">
+                <Link href="/auth?r=login" className="bg-primary-400 text-white py-2 px-3 hover:bg-primary-600 hover:duration-200">Se connecter</Link>
+                <Link href="/auth?r=register" className="bg-primary-400 text-white py-2 px-3 hover:bg-primary-600 hover:duration-200">S&apos;enregistrer</Link>
+              </div>
+              <div className="dropdown lg:hidden">
+                <Dropdown/>
+              </div>
           </div>
         }
         {
