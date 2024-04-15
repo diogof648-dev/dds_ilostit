@@ -43,7 +43,7 @@ const LoginForm = () => {
               name="email" 
               id="email" 
               value={userInformations.email}
-              pattern="(?![_.-])((?![_.-][_.-])[\w.-]){0,63}[a-zA-Z\d]@((?!-)((?!--)[a-zA-Z\d-]){0,63}[a-zA-Z\d]\.){1,2}([a-zA-Z]{2,14}\.)?[a-zA-Z]{2,14}" 
+              pattern="[A-Za-z0-9._&percnt;\-]+(@eduvaud.ch)" 
               className="w-full border rounded-md border-gray-200 p-2"
               onChange={
                 (e) => {
@@ -79,13 +79,41 @@ const LoginForm = () => {
 }
 
 const RegisterForm = () => {
-  const [userInformations,setUserInformations] = useState({email: "", password: "", passwordConfirmation: ""})
+  const [userInformations, setUserInformations] = useState({email: "", password: "", passwordConfirmation: ""})
+  const [registerFormInformations, setregisterFormInformations] = useState({message: "", error: false})
 
   const borderIfFalse = userInformations.passwordConfirmation != "" && userInformations.password != userInformations.passwordConfirmation ? "border border-red-500" : "border"
   const textIfFalse = userInformations.passwordConfirmation != "" && userInformations.password != userInformations.passwordConfirmation ? "" : "hidden"
   
+  const handleFormSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
+    e.preventDefault()
+
+    const data = {
+      email: userInformations.email,
+      password: userInformations.password
+    }
+
+    await fetch('http://localhost:3000/api/register',{
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(function(response) {
+      return response.json()
+    }).then(function(response) {
+      if(response.ok != true){
+        setregisterFormInformations({...registerFormInformations, message: response.message, error: true})
+        return
+      }
+
+      setregisterFormInformations({...registerFormInformations, message: response.message, error: false})
+      return
+    })
+  }
+
   return (
-    <form action="" method="post" className="space-y-4">
+    <form onSubmit={handleFormSubmit} method="post" className="space-y-4">
       <div className="title text-center text-3xl mb-10">Enregistrement</div>
       <div className="email">
         <label htmlFor="email" className="after:content-['*'] after:ml-px after:text-red-500">Email</label>
@@ -93,7 +121,7 @@ const RegisterForm = () => {
           type="email" 
           name="email" 
           id="email" 
-          pattern="(?![_.-])((?![_.-][_.-])[\w.-]){0,63}[a-zA-Z\d]@((?!-)((?!--)[a-zA-Z\d-]){0,63}[a-zA-Z\d]\.){1,2}([a-zA-Z]{2,14}\.)?[a-zA-Z]{2,14}" 
+          pattern="[A-Za-z0-9._&percnt;\-]+(@eduvaud.ch)" 
           className="w-full border rounded-md border-gray-200 p-2 invalid:after:content-['test']"
           onChange={
             (e) => {
@@ -134,6 +162,12 @@ const RegisterForm = () => {
         />
         <p className={"text-red-500 text-sm " + textIfFalse}>Vos 2 mots de passes de ne correspondent pas.</p>
       </div>
+      {
+          registerFormInformations.message != "" &&
+          <div className={"error text-center w-full p-2 text-white" + (registerFormInformations.error == true ? " bg-red-500" : " bg-green-600")}>
+            {registerFormInformations.message}
+          </div>
+        }
       <input type="submit" value="S'enregistrer" className="w-full cursor-pointer px-2 py-3 bg-primary-400 rounded-md text-white"/>
     </form>
   )
