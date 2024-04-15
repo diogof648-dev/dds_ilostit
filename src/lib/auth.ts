@@ -32,7 +32,7 @@ const options: AuthOptions = {
                 }
                 catch(error)
                 {
-                    throw new Error("Une erreur s'est produite, merci de réssayer plus tard...") 
+                    throw new Error("Une erreur s'est produite, merci de réssayer plus tard") 
                 }
                 
 
@@ -42,7 +42,7 @@ const options: AuthOptions = {
 
                     if(passwordsMatch){
                         const user = {
-                            id: existingUser.id,
+                            id: existingUser.id.toString(),
                             email: email
                         }
 
@@ -59,4 +59,39 @@ const options: AuthOptions = {
     }
 }
 
-export { options }
+const register = async (email: string, password: string) : Promise<boolean> => {
+    const hashPassword = await bcrypt.hash(password, 10)
+
+    const prisma = new PrismaClient()
+    
+    let existingUser = undefined
+
+    // get existing user with email
+    try{
+        existingUser = await prisma.user.findUnique({
+            where: {
+                email: email
+            }
+        })
+    } catch (error) {
+        throw new Error("Une erreur s'est produite...")
+    }
+
+    // if it exists, return false
+    if (existingUser != null) throw new Error("L'email est déjà utilisé !")
+
+    try{
+        await prisma.user.create({
+            data: {
+                email: email,
+                password: hashPassword
+            },
+        });
+    } catch (error) {
+        throw new Error("Une erreur s'est produite...")
+    }
+
+    return true;
+}
+
+export { options, register }
